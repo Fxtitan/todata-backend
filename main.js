@@ -14,6 +14,68 @@
 /***********************
  * ITERATION FUNCTIONS *
  ***********************/
+const getTodoName = (todo) => {
+  return todo.text;
+}
+
+const getPriority = (todo) => {
+  return todo.priority;
+}
+
+const isComplete = (todo) => {
+  return todo.complete;
+}
+
+const isHighPriority = (todo) => {
+  return todo.priority === 2;
+  
+}
+
+
+const priority1Only = (todos) => {
+  let lowPriorityTodos = [];
+  for (const item of todos) {//for every item in my todos
+    if (!isHighPriority(item)) {
+      lowPriorityTodos.push(item)
+
+    }
+  }
+
+return lowPriorityTodos;
+}
+
+const priority2Only = (todos) => {
+  let highPriority = [];
+  for (const item of todos) {
+    if (isHighPriority(item)) {
+      highPriority.push(item)
+
+    }
+
+  }
+return highPriority
+}
+
+const names = (todos) => {
+  return todos.map(getTodoName);
+}
+
+const priorities = (todos) => {
+  return todos.map(getPriority);
+
+}
+
+const justComplete = (todos) => {
+  return todos.filter(isComplete)
+}
+
+const notComplete = (todo) => {
+  return todo.complete === false
+}
+
+const justNotComplete = (todos) => {
+  return todos.filter(notComplete)
+}
 
 
 
